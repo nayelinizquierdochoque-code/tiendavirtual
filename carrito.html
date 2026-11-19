@@ -1,0 +1,185 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito | NOVA STORE</title>
+    <link rel="stylesheet" href="css/estilos.css">
+
+    <style>
+        .carrito-banner {
+            background: linear-gradient(90deg, #172554, #2563eb);
+            color: white;
+            text-align: center;
+            padding: 55px 20px;
+        }
+
+        .carrito-contenedor {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: var(--sombra);
+        }
+
+        .producto-carrito {
+            display: grid;
+            grid-template-columns: 100px 1fr auto;
+            align-items: center;
+            gap: 20px;
+            padding: 20px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .producto-carrito img {
+            width: 100px;
+            height: 90px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .producto-carrito h3 {
+            color: var(--primario);
+        }
+
+        .cantidad {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .cantidad button, .eliminar {
+            border: none;
+            padding: 7px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .cantidad button {
+            background: #dbeafe;
+            color: #172554;
+        }
+
+        .eliminar {
+            background: #fee2e2;
+            color: #dc2626;
+        }
+
+        .resumen {
+            margin-top: 25px;
+            text-align: right;
+        }
+
+        .resumen h2 {
+            color: var(--primario);
+            margin-bottom: 15px;
+        }
+
+        .total {
+            font-size: 28px;
+            color: var(--secundario);
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        #mensaje-carrito {
+            text-align: center;
+            padding: 35px;
+            color: var(--gris);
+        }
+
+        @media(max-width: 600px) {
+            .producto-carrito {
+                grid-template-columns: 75px 1fr;
+            }
+
+            .producto-carrito img {
+                width: 75px;
+                height: 75px;
+            }
+
+            .producto-carrito .eliminar {
+                grid-column: 2;
+                justify-self: start;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <a href="index.html" class="logo">NOVA <span>STORE</span></a>
+
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="productos.html">Productos</a>
+        <a href="nosotros.html">Nosotros</a>
+        <a href="contacto.html">Contacto</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="faq.html">FAQ</a>
+        <a href="carrito.html">
+            Carrito (<span class="contador-carrito">0</span>)
+        </a>
+    </nav>
+</header>
+
+<section class="carrito-banner">
+    <h1>MI CARRITO DE COMPRAS</h1>
+    <p>Revisa tus productos antes de continuar.</p>
+</section>
+
+<main class="contenedor">
+
+    <section class="titulo">
+        <h1>Mis productos seleccionados</h1>
+        <p>Administra tus compras en NOVA STORE.</p>
+    </section>
+
+    <section class="carrito-contenedor">
+
+        <div id="lista-carrito">
+            <p id="mensaje-carrito">Cargando carrito...</p>
+        </div>
+
+        <div class="resumen">
+            <h2>Resumen de compra</h2>
+
+            <p id="cantidad-total">Productos: 0</p>
+
+            <p class="total" id="total-compra">
+                Total: Bs 0.00
+            </p>
+
+            <button class="btn" onclick="vaciarCarrito()">
+                Vaciar carrito
+            </button>
+
+            <button class="btn" onclick="finalizarCompra()">
+                Finalizar compra
+            </button>
+        </div>
+
+        <p id="mensaje-final" style="text-align:right;margin-top:15px;"></p>
+
+    </section>
+
+    <section class="titulo" style="margin-top:40px;">
+        <a href="productos.html" class="btn">
+            Seguir comprando
+        </a>
+    </section>
+
+</main>
+
+<footer>
+    <p>© 2026 NOVA STORE | Todos los derechos reservados.</p>
+    <p>Tu tienda, tu estilo, tu mejor elección.</p>
+</footer>
+
+<script src="js/app.js"></script>
+<script src="js/carrito.js"></script>
+
+</body>
+</html>
